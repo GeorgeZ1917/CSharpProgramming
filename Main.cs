@@ -120,17 +120,12 @@ public class MainClass
         Node.insertElement(headNode, 12);
         Node.insertElement(headNode, 6);
         Node.insertElement(headNode, 20);
-        var rand = new Random();
-        for (int i = 0; i < 1_000_000; i ++)
-        {
-            Node.insertElement(headNode, rand.Next(0, 1_000_000));
-        }
-        //Node.printList(headNode);
+        Node.printList(headNode);
 
         Node newNode = Node.findNode(headNode, 7);
 
         Console.WriteLine("Value of newNode.data is {0}.", newNode.data);
-        //Node.printList(headNode);
+        Node.printList(headNode);
 
         (int intVal, float floatVal, string stringVal) myTuple = (42, 3.1415f, "Hello World.");
         Console.WriteLine("The float value of myTuple is {0}:", myTuple.floatVal);
