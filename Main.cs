@@ -154,6 +154,9 @@ public class MainClass
         Console.WriteLine("Integer value of propObj: {0}, string value of propObj: '{1}', bool value of objProp: {2}.", propObj.intProp, propObj.stringProp, propObj.boolProp);
         Console.WriteLine("Integer value of propObj2: {0}, string value of propObj2: '{1}', bool value of propObj2: {2}.", propObj2.intProp, propObj2.stringProp, propObj2.boolProp);
         Console.WriteLine("Readonly value from PropertiesClass: {0}.", propObj.readVar.ToString());
+
+        DerivedClassThree newDerivedObj = new DerivedClassThree(42, "Derived class three string.");
+        Console.WriteLine("The string of 'newDerivedObj' set through a property is: {0}", newDerivedObj.stringData);
         
         Console.ReadKey();
     }

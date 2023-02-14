@@ -1,4 +1,4 @@
-﻿    // Definitions.cs
+﻿// Definitions.cs
 
 
 using System;
@@ -6,7 +6,7 @@ using System;
 
 public class MyClass
 {
-    private int val;
+    protected int val;
     public MyClass()
     {
         ;
@@ -118,6 +118,31 @@ public class DerivedClassTwo : MyClass
 public class DerivedClassThree : MyClass
 {
     public float dataDerived;
+    private string dataString;
+    public string stringData
+    {
+        get { return dataString; }
+        set
+        {
+            if (value != null)
+            {
+                dataString = value;
+            }
+            else
+            {
+                throw new Exception ("Cannot set the value to an empty string.");
+            }
+        }
+    }
+    public DerivedClassThree ()
+    {
+        ;
+    }
+    public DerivedClassThree (int dataInt, string dataString)
+        :base (dataInt)    
+    {
+        stringData = dataString;
+    }
     public override void derivedClassMethod()
     {
         Console.WriteLine("Inside derived method from DerivedClassThree");
