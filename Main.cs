@@ -109,23 +109,23 @@ public class MainClass
         Console.WriteLine("newObjMyClass.val after reference passing: {0}.", newObjMyClass.getVal(5));
         MethodsClass.optionalParams (ref refInt, ref newObjMyClass, theFlag);
 
-        Node headNode = new Node();
+        LinkedList LinkedList = new LinkedList();
         headNode.next = null;
         headNode.data = 5;
 
-        Node.insertElement(headNode, 2);
-        Node.insertElement(headNode, 1);
-        Node.insertElement(headNode, 7);
-        Node.insertElement(headNode, 9);
-        Node.insertElement(headNode, 12);
-        Node.insertElement(headNode, 6);
-        Node.insertElement(headNode, 20);
-        Node.printList(headNode);
+        LinkedList.insertElement(headNode, 2);
+        LinkedList.insertElement(headNode, 1);
+        LinkedList.insertElement(headNode, 7);
+        LinkedList.insertElement(headNode, 9);
+        LinkedList.insertElement(headNode, 12);
+        LinkedList.insertElement(headNode, 6);
+        LinkedList.insertElement(headNode, 20);
+        LinkedList.printList(headNode);
 
-        Node newNode = Node.findNode(headNode, 7);
+        LinkedList newNode = LinkedList.findNode(headNode, 7);
 
         Console.WriteLine("Value of newNode.data is {0}.", newNode.data);
-        Node.printList(headNode);
+        LinkedList.printList(headNode);
 
         (int intVal, float floatVal, string stringVal) myTuple = (42, 3.1415f, "Hello World.");
         Console.WriteLine("The float value of myTuple is {0}:", myTuple.floatVal);
