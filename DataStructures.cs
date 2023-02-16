@@ -1,49 +1,57 @@
 // DataStructures.cs
 
+
+using System;
+
 public abstract class LinkedStructure
 {
-    protected int intData;
-    public static void printData(LinkedStructure head) {}
-    public static void insertElement(LinkedStructure head, int data) {}
-    public abstract uint getSize (LinkedStructure head);
+    private int _data;
+    public int Data
+    {
+        get { return _data; }
+        set { _data = value; }
+    }
+    public abstract void insertElement(int data);
+    public abstract void printData();
+    public abstract uint getSize ();
+    public abstract LinkedList findElement (int Data);
 }
 
 public class LinkedList : LinkedStructure
 {
-    public int data;
     public LinkedList next;
-    public static new void insertElement(LinkedStructure head, int Data)
+    public override void insertElement(int data)
     {
         LinkedList newNode = new LinkedList();
-        newNode.data = Data;
-        newNode.next = head.next;
-        head.next = newNode;
+        newNode.Data = data;
+        newNode.next = this.next;
+        this.next = newNode;
     }
-    public static new void printData(LinkedStructure head)
+    public override void printData()
     {
-        LinkedList currentNode = head;
+        LinkedList currentNode = this;
         int i = 0;
         while (currentNode != null)
         {
-            Console.WriteLine("Data of node {0}: {1}.", i, currentNode.data);
+            Console.WriteLine("Data of node {0}: {1}.", i, currentNode.Data);
             i ++;
             currentNode = currentNode.next;
         }
     }
-    public static LinkedList findNode(LinkedList head, int Data)
+    public override LinkedList findElement(int data)
     {
-        LinkedList temp = head;
-        LinkedList currentNode = head;
-        if(temp.data == Data && temp.next == null)
+        LinkedList temp = this;
+        LinkedList currentNode = this;
+        /*if(temp.Data == data && temp.next == null) // The special case when the head has the value searched must be accounted for.
         {
-            head = head.next;
+            this = this.next;
             return temp;
         }
-        else
+        else*/
         {
             while(temp.next != null)
             {
-                if(temp.next.data == Data)
+                if(temp.next.Data == data)
                 {
                     currentNode = temp.next;
                     temp.next = temp.next.next;
@@ -54,8 +62,8 @@ public class LinkedList : LinkedStructure
             return null;
         }
     }
-    public override uint getSize (LinkedStructure head)
+    public override uint getSize ()
     {
-        ;
+        return 0;
     }
 }

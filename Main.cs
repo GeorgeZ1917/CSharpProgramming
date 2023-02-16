@@ -1,5 +1,6 @@
 //Main.cs
 
+
 using System;
 using System.Collections.Generic;
 
@@ -109,23 +110,23 @@ public class MainClass
         Console.WriteLine("newObjMyClass.val after reference passing: {0}.", newObjMyClass.getVal(5));
         MethodsClass.optionalParams (ref refInt, ref newObjMyClass, theFlag);
 
-        LinkedList LinkedList = new LinkedList();
+        LinkedList headNode = new LinkedList();
         headNode.next = null;
-        headNode.data = 5;
+        headNode.Data = 5;
 
-        LinkedList.insertElement(headNode, 2);
-        LinkedList.insertElement(headNode, 1);
-        LinkedList.insertElement(headNode, 7);
-        LinkedList.insertElement(headNode, 9);
-        LinkedList.insertElement(headNode, 12);
-        LinkedList.insertElement(headNode, 6);
-        LinkedList.insertElement(headNode, 20);
-        LinkedList.printList(headNode);
+        headNode.insertElement(2);
+        headNode.insertElement(1);
+        headNode.insertElement(7);
+        headNode.insertElement(9);
+        headNode.insertElement(12);
+        headNode.insertElement(6);
+        headNode.insertElement(20);
+        headNode.printData();
 
-        LinkedList newNode = LinkedList.findNode(headNode, 7);
+        LinkedList newNode = headNode.findElement(7);
 
-        Console.WriteLine("Value of newNode.data is {0}.", newNode.data);
-        LinkedList.printList(headNode);
+        Console.WriteLine("Value of newNode.data is {0}.", newNode.Data);
+        headNode.printData();
 
         (int intVal, float floatVal, string stringVal) myTuple = (42, 3.1415f, "Hello World.");
         Console.WriteLine("The float value of myTuple is {0}:", myTuple.floatVal);
