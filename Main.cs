@@ -1,4 +1,4 @@
-//Main.cs
+// Main.cs
 
 
 using System;
@@ -158,6 +158,21 @@ public class MainClass
 
         DerivedClassThree newDerivedObj = new DerivedClassThree(42, "Derived class three string.");
         Console.WriteLine("The string of 'newDerivedObj' set through a property is: {0}", newDerivedObj.stringData);
+
+        ExceptionClass ExObj = new ExceptionClass (3.14159265);
+        try
+        {
+            Console.WriteLine("The Value of ExObj divided by {0}, is {1}", 7, ExObj.division(7) );
+            Console.WriteLine("The Value of ExObj divided by {0}, is {1}", 0, ExObj.division(0) );
+        }
+        catch(Exception Ex)
+        {
+            Console.WriteLine("Could not compute the divisions: {0}\n\n", Ex.Message);
+            Console.WriteLine("Could not compute the divisions: {0}\n\n", Ex.StackTrace);
+            Console.WriteLine("Could not compute the divisions: {0}\n\n", Ex.Source);
+            Console.WriteLine("Could not compute the divisions: {0}\n\n", Ex.TargetSite);
+        }
+
         
         Console.ReadKey();
     }

@@ -214,3 +214,28 @@ public class PropertiesClass
     }
     public readonly float readVar;
 }
+
+public class ExceptionClass
+{
+    private double val;
+    public double ValProp
+    {
+        get { return val; }
+        set { val = value; }
+    }
+    public ExceptionClass (double val)
+    {
+        ValProp = val;
+    }
+    public double division (double val)
+    {
+        if (val == 0)
+        {
+            throw new Exception ("Exception thrown: attempted to divide by zero.");
+        }
+        else
+        {
+            return val / ValProp;
+        }
+    }
+}
