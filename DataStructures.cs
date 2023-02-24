@@ -19,17 +19,34 @@ public abstract class LinkedStructure
 
 public class LinkedList : LinkedStructure
 {
-    public LinkedList next;
+    private LinkedList head;
+    private LinkedList tail;
+    private LinkedList next;
+    public LinkedList ()
+    {
+        ;
+    }
+    public LinkedList createLinkedList (int data)
+    {
+        head = new LinkedList ();
+        tail = new LinkedList ();
+        LinkedList newNode = new LinkedList ();
+        newNode.Data = data;
+        head.next = newNode;
+        tail.next = newNode;
+        newNode.next = null;
+        return head;
+    }
     public override void insertElement(int data)
     {
         LinkedList newNode = new LinkedList();
         newNode.Data = data;
-        newNode.next = this.next;
-        this.next = newNode;
+        tail.next.next = newNode;
+        tail.next = newNode;
     }
     public override void printData()
     {
-        LinkedList currentNode = this;
+        LinkedList currentNode = head.next;
         int i = 0;
         while (currentNode != null)
         {
@@ -40,27 +57,24 @@ public class LinkedList : LinkedStructure
     }
     public override LinkedList findElement(int data)
     {
-        LinkedList temp = this;
-        LinkedList currentNode = this;
-        /*if(temp.Data == data && temp.next == null) // The special case when the head has the value searched must be accounted for.
+        LinkedList currentNode = head;
+        LinkedList temp;
+        while (currentNode.next != null)
         {
-            this = this.next;
-            return temp;
-        }
-        else*/
-        {
-            while(temp.next != null)
+            if (currentNode.next.Data == data)             // Hay errores en la lógica interna; verificar todos los casos posibles.
             {
-                if(temp.next.Data == data)
+                if (currentNode.next.next == null)
                 {
-                    currentNode = temp.next;
-                    temp.next = temp.next.next;
-                    return currentNode;
+                    tail.next = currentNode;
                 }
-                temp = temp.next;
+                temp = currentNode.next;
+                temp.next = null;
+                currentNode.next = currentNode.next.next;
+                return temp;
             }
-            return null;
+            currentNode = currentNode.next;
         }
+        return null;
     }
     public override uint getSize ()
     {
