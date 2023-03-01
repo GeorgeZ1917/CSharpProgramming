@@ -110,9 +110,7 @@ public class MainClass
         Console.WriteLine("newObjMyClass.val after reference passing: {0}.", newObjMyClass.getVal(5));
         MethodsClass.optionalParams (ref refInt, ref newObjMyClass, theFlag);
 
-        LinkedList myList = new LinkedList();
-        myList.createLinkedList(5);
-
+        LinkedList myList = LinkedList.newList(4);
 
         myList.insertElement(2);
         myList.insertElement(1);
@@ -123,8 +121,8 @@ public class MainClass
         myList.insertElement(20);
         myList.printData();
 
-        LinkedList newNode = myList.findElement(7);
-        LinkedList newNode = myList.findElement(20);
+        LinkedList newNode = myList.findElement(4);
+        LinkedList newNode2 = myList.findElement(20);
 
         myList.printData();
 

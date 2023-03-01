@@ -26,6 +26,12 @@ public class LinkedList : LinkedStructure
     {
         ;
     }
+    public static LinkedList newList(int val)
+    {
+        LinkedList list = new LinkedList ();
+        list.createLinkedList (val);
+        return list;
+    }
     public LinkedList createLinkedList (int data)
     {
         head = new LinkedList ();
@@ -61,16 +67,21 @@ public class LinkedList : LinkedStructure
         LinkedList temp;
         while (currentNode.next != null)
         {
-            if (currentNode.next.Data == data)             // Hay errores en la lógica interna; verificar todos los casos posibles.
+            if (currentNode.next.Data == data)
             {
-                if (currentNode.next.next == null)
+                if (currentNode.next.next != null)
                 {
-                    tail.next = currentNode;
+                    temp = currentNode.next;
+                    currentNode.next = currentNode.next.next;
                 }
-                temp = currentNode.next;
+                else
+                {                    
+                    tail.next = currentNode;
+                    temp = currentNode.next;
+                    currentNode.next = null;
+                }
                 temp.next = null;
-                currentNode.next = currentNode.next.next;
-                return temp;
+                return temp;                
             }
             currentNode = currentNode.next;
         }
