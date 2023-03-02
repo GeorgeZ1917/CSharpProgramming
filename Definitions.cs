@@ -239,3 +239,45 @@ public class ExceptionClass
         }
     }
 }
+
+
+public interface IData
+{
+    void printData ();
+}
+
+public class Linear : IData
+{
+    private float _data;
+    public float Data
+    {
+        get { return _data; }
+        set { _data = value; }
+    }
+    public Linear (float val)
+    {
+        Data = val;
+    }
+    public void printData ()
+    {
+        Console.WriteLine("The linear value of {0} is {1}.", Data, Data);
+    }
+}
+
+public class Squared : IData
+{
+    private float _data;
+    public float Data
+    {
+        get { return _data; }
+        set { _data = value; }
+    }
+    public Squared (float val)
+    {
+        Data = val;
+    }
+    public void printData ()
+    {
+        Console.WriteLine("The squared value of {0} is {1}.", Data, Data * Data);
+    }
+}

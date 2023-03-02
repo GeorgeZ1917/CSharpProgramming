@@ -171,6 +171,17 @@ public class MainClass
             Console.WriteLine("Could not compute the divisions: {0}\n\n", Ex.TargetSite);
         }
 
+        Linear linearObj = new Linear (3.14159265f);
+        linearObj.printData();
+
+        Squared squaredObj = new Squared (3.14159265f);
+        squaredObj.printData();
+
+        IData [] interfaceArray = new IData [] {linearObj, squaredObj};
+        foreach(IData arrElement in interfaceArray)
+        {
+            arrElement.printData();
+        }
         
         Console.ReadKey();
     }
