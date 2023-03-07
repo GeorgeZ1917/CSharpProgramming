@@ -246,7 +246,7 @@ public interface IData
     void printData ();
 }
 
-public class Linear : IData
+public class Linear : IData, ICloneable, IComparable
 {
     private float _data;
     public float Data
@@ -261,6 +261,19 @@ public class Linear : IData
     public void printData ()
     {
         Console.WriteLine("The linear value of {0} is {1}.", Data, Data);
+    }
+    public object Clone ()
+    {
+        return new Linear ( this.Data );
+    }
+    int IComparable.CompareTo(object obj)
+    {
+        Linear temp = obj as Linear;
+        if (temp != null)
+        {
+            return this.Data.CompareTo(temp.Data);
+        }
+        return -2;
     }
 }
 

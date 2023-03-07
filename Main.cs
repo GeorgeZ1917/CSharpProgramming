@@ -171,17 +171,28 @@ public class MainClass
             Console.WriteLine("Could not compute the divisions: {0}\n\n", Ex.TargetSite);
         }
 
-        Linear linearObj = new Linear (3.14159265f);
+        Linear linearObj = new Linear (2.718281828f);
         linearObj.printData();
 
         Squared squaredObj = new Squared (3.14159265f);
         squaredObj.printData();
 
-        IData [] interfaceArray = new IData [] {linearObj, squaredObj};
+        Linear cloneObj = (Linear) linearObj.Clone();
+        cloneObj.printData();
+
+        IData [] interfaceArray = new IData [] {linearObj, squaredObj, cloneObj};
         foreach(IData arrElement in interfaceArray)
         {
             arrElement.printData();
         }
+
+        Array.Sort(interfaceArray);
+
+        foreach(IData arrElement in interfaceArray)
+        {
+            arrElement.printData();
+        }
+
         
         Console.ReadKey();
     }
